@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\JuanchoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +20,6 @@ use App\Http\Controllers\ProductosController;
 
 Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
 Route::get('/productos/{id}', [ProductosController::class, 'show'])->name('productos.show');
+
+Route::resource('cotizacion', CotizacionController::class);
+Route::resource('juancho', JuanchoController::class);

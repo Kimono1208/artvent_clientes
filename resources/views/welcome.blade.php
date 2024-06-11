@@ -664,8 +664,8 @@
                 <div class="faq-list">
                   <ul>
                       <li data-aos="fade-up">
-                          <i class="bx bx-help-circle icon-help"></i> 
-                          <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">¿Qué tipos de toldos existen? 
+                          <i class="bx bx-help-circle icon-help"></i>
+                          <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">¿Qué tipos de toldos existen?
                               <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                           </a>
                           <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
@@ -674,10 +674,10 @@
                               </p>
                           </div>
                       </li>
-              
+
                       <li data-aos="fade-up" data-aos-delay="100">
-                          <i class="bx bx-help-circle icon-help"></i> 
-                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">¿Cuál es la vida útil de un toldo? 
+                          <i class="bx bx-help-circle icon-help"></i>
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">¿Cuál es la vida útil de un toldo?
                               <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                           </a>
                           <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
@@ -686,10 +686,10 @@
                               </p>
                           </div>
                       </li>
-              
+
                       <li data-aos="fade-up" data-aos-delay="200">
-                          <i class="bx bx-help-circle icon-help"></i> 
-                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">¿Cómo se limpia y mantiene un toldo? 
+                          <i class="bx bx-help-circle icon-help"></i>
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">¿Cómo se limpia y mantiene un toldo?
                               <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                           </a>
                           <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
@@ -698,10 +698,10 @@
                               </p>
                           </div>
                       </li>
-              
+
                       <li data-aos="fade-up" data-aos-delay="300">
-                          <i class="bx bx-help-circle icon-help"></i> 
-                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">¿Los toldos son resistentes al viento y la lluvia? 
+                          <i class="bx bx-help-circle icon-help"></i>
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">¿Los toldos son resistentes al viento y la lluvia?
                               <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                           </a>
                           <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
@@ -710,10 +710,10 @@
                               </p>
                           </div>
                       </li>
-              
+
                       <li data-aos="fade-up" data-aos-delay="400">
-                          <i class="bx bx-help-circle icon-help"></i> 
-                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">¿Se pueden personalizar los toldos? 
+                          <i class="bx bx-help-circle icon-help"></i>
+                          <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">¿Se pueden personalizar los toldos?
                               <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
                           </a>
                           <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
@@ -724,7 +724,7 @@
                       </li>
                   </ul>
               </div>
-              
+
 
             </div>
 
@@ -736,7 +736,7 @@
 
                 <div class="section-title" data-aos="fade-up">
                     <h2>Contacto</h2>
-                    <p>Contáctenos</p>
+                    <p>cotización</p>
                 </div>
 
                 <div class="row">
@@ -762,64 +762,61 @@
                             </div>
                         </div>
                     </div>
-
+                    {{-- <a href="/about">dsad</a> --}}
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{ route('juancho.store') }}" method="POST" role="form" class="php-email-form">
+                         @csrf
                           <div class="row">
                             <div class="col-md-6 form-group">
-                            <select class="form-select" aria-label="Default select example">
-                              <option selected>¿Eres de Guadalajara?</option>
-                              <option value="1">Si</option>
-                              <option value="2">No</option>
-                              <option value="3"></option>
+                            <select name="es_guadalajara" class="form-select" aria-label="Default select example" required>
+                              <option selected>¿Su evento es en Guadalajara?</option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
                               </select>
                             </div>
                             <div class="col-md-6 form-group">
-                              <select class="form-select" aria-label="Default select example">
+                              <select name="es_aire_libre" class="form-select" aria-label="Default select example" required>
                               <option selected>¿El evento es al aire libre?</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
                               </select>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-md-6 form-group">
-                            <select class="form-select" aria-label="Default select example">
+                            <select name="es_evento_grande" class="form-select" aria-label="Default select example" required>
                               <option selected>¿Es un evento grande?</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
                               </select>
                             </div>
                             <div class="col-md-6 form-group">
-                              <select class="form-select" aria-label="Default select example">
-                              <option selected></option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <select name="es_todo_el_dia" class="form-select" aria-label="Default select example" required>
+                              <option selected>¿El evento sera todo el dia?</option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
                               </select>
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-6 form-group">
-                            <select class="form-select" aria-label="Default select example">
-                              <option selected>Pais</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                            <div class="form-group">
+                            <select name="manana_o_noche" class="form-select" aria-label="Default select example" required>
+                              <option selected>En caso de que sea medio dia, ¿el evento seria en la noche o en la mañana?</option>
+                              <option value="Manana">Mañana</option>
+                              <option value="Noche">Noche</option>
                               </select>
                             </div>
+                            </div>
                             <div class="col-md-6 form-group">
-                              <select class="form-select" aria-label="Default select example">
-                              <option selected>Pais</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <select name="temporada" class="form-select" aria-label="Default select example" required>
+                              <option selected>Temporada del año</option>
+                              <option value="Verano">Verano</option>
+                              <option value="Otoño">Otoño</option>
+                              <option value="Invierno">Invierno</option>
+                              <option value="Primavera">Primavera</option>
                               </select>
                             </div>
-                          </div>
-                              <div class="row">
+{{--                               <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" required>
                                 </div>
@@ -832,11 +829,14 @@
                             </div>
                             <div class="form-group mt-3">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
-                            </div>
+                            </div> --}}
                             <div class="my-3">
                                 <div class="loading">Cargando</div>
                                 <div class="error-message"></div>
                                 <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
+                            </div>
+                            <div>
+                                {{ isset($success) ? $success : "" }}
                             </div>
                             <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
                         </form>
