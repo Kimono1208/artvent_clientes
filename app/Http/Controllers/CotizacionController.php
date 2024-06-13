@@ -28,8 +28,9 @@ class CotizacionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecotizacionRequest $request)
+    public function store(Request $request)
     {
+        // dd($request->all());
         $cotizacion = new cotizacion();
         $cotizacion->es_guadalajara = $request->es_guadalajara;
         $cotizacion->es_aire_libre = $request->es_aire_libre;
@@ -40,7 +41,7 @@ class CotizacionController extends Controller
         // $cotizacion->estatus = 1;
 
         $cotizacion->save();
-        return redirect('/about');
+        return redirect('about');
     }
 
     /**

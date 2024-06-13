@@ -22,4 +22,7 @@ Route::get('/productos', [ProductosController::class, 'index'])->name('productos
 Route::get('/productos/{id}', [ProductosController::class, 'show'])->name('productos.show');
 
 Route::resource('cotizacion', CotizacionController::class);
+
+
+
 Route::resource('juancho', JuanchoController::class);
