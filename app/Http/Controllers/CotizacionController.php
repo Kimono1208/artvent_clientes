@@ -6,6 +6,7 @@ use App\Models\cotizacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorecotizacionRequest;
 use App\Http\Requests\UpdatecotizacionRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class CotizacionController extends Controller
 {
@@ -30,7 +31,9 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+
+        // Lógica para guardar los datos del formulario
+            // dd($request->all());
         $cotizacion = new cotizacion();
         $cotizacion->es_guadalajara = $request->es_guadalajara;
         $cotizacion->es_aire_libre = $request->es_aire_libre;
@@ -41,9 +44,10 @@ class CotizacionController extends Controller
         // $cotizacion->estatus = 1;
 
         $cotizacion->save();
-        return redirect('about');
-    }
 
+        // Redirige al usuario a la página de inicio con un mensaje de éxito
+        return Redirect::route('home')->with('success', 'Tu cotización se ha enviado con éxito y está siendo procesada.');
+    }
     /**
      * Display the specified resource.
      */

@@ -1,47 +1,71 @@
-.contenedor {
-    padding: 40px 40px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* styles.css */
+
+/* Estilos para el contenedor del formulario */
+form {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario en la página */
+    padding: 20px; /* Espaciado interior */
+    border: 1px solid #ccc; /* Borde del formulario */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
 }
 
-.form_cont {
-    background-color: #128d2e;
-    border-radius: 2rem;
-    color: black;
+/* Estilos para los campos de entrada */
+form .form-group {
+    margin-bottom: 15px; /* Espaciado entre grupos de campos */
 }
 
-.title {
-    position: relative;
-    margin-bottom: 2rem;
-}
-.title::after {
-    content: "";
-    inset: 0;
-    width: 80%;
-    border-bottom: 4px solid #128d2e;
-    position: absolute;
-    bottom: -10px;
-}
-.form-label {
-    color: black;
-    font-weight: 600;
+/* Estilos para las etiquetas */
+form label {
+    display: block; /* Mostrar etiquetas como bloques para el salto de línea */
+    margin-bottom: 5px; /* Espaciado inferior entre etiqueta y campo */
+    font-weight: bold; /* Negrita en las etiquetas */
 }
 
-.btn-primary {
-    background-color: #feea9a;
-    margin-right: 2rem;
-    color: black;
+/* Estilos para los campos de entrada de texto */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interior */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
 }
-.btn-primary:hover {
-    background-color: #b37702;
-    margin-right: 2rem;
-    box-shadow: 0 3px 3px 0 #2fb54c, 0 3px 1px -2px #2fb54c, 0 1px 5px 0 #2fb54c;
+
+/* Estilos para los mensajes de error */
+form .error-message {
+    color: #ff0000; /* Color rojo para los mensajes de error */
+    font-size: 14px; /* Tamaño de fuente más pequeño para los mensajes */
+    margin-top: 5px; /* Espaciado superior */
 }
-.btn-secondary {
-    background-color: #05512c;
-    box-shadow: 0 3px 3px 0 #2fb54c, 0 3px 1px -2px #2fb54c, 0 1px 5px 0 #2fb54c;
+
+/* Estilos para el botón de registro */
+form button {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 12px 20px; /* Espaciado interior del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero al pasar por encima */
+    font-size: 16px; /* Tamaño de fuente */
 }
-.btn-secondary:hover {
-    background-color: #b3f7ae;
-    box-shadow: 0 3px 3px 0 #2fb54c, 0 3px 1px -2px #2fb54c, 0 1px 5px 0 #2fb54c;
-    color: black;
-    border: -1px solid #095637;
+
+/* Estilos para el enlace "Already registered?" */
+form a {
+    text-decoration: none; /* Sin subrayado */
+    color: #333; /* Color del texto */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-right: 10px; /* Margen derecho */
+}
+
+/* Estilos adicionales */
+form .flex {
+    display: flex; /* Utilizar flexbox para alinear elementos */
+    align-items: center; /* Alinear elementos verticalmente */
+    justify-content: space-between; /* Distribuir espacio entre elementos */
+    margin-top: 20px; /* Margen superior */
 }
