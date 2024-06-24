@@ -86,7 +86,7 @@ new class extends Component {
                     <li><a class="nav-link scrollto active" href="dashboard">Inicio</a></li>
                     <li><a class="nav-link scrollto" href="about">Acerca de</a></li>
                     <li><a class="nav-link scrollto" href="features">Caracteristicas</a></li>
-                    <li><a class="nav-link scrollto" href="gallery">Galeria</a></li>
+                    <li><a class="nav-link scrollto" href="{{route('productos.index')}}">Galeria</a></li>
                     <li><a class="nav-link scrollto" href="team">Equipo</a></li>
                     <li><a class="nav-link scrollto" href="pricing">precios</a></li>
                     <li class="dropdown"><a href="#"><span>Mas opciones</span> 

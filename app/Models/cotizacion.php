@@ -8,6 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class cotizacion extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['es_guadalajara', 'es_aire_libre', 'temporada', 'es_evento_grande', 'es_todo_el_dia', 'manana_o_noche'];
+    protected $table = 'cotizaciones';
+    protected $fillable = [
+        
+        'ancho',
+        'largo',
+        'tipo',
+        'cantidad_personas',
+        'lugar',
+        'luces',
+        'conexiones',
+        'mesas',
+        'sillas',
+        'tarimas',
+        'color',
+        'cortinas',
+        'decoracion_extra',
+        'status'
+    ];
+    
 }

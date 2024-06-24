@@ -15,7 +15,7 @@ class CotizacionController extends Controller
      */
     public function index()
     {
-        return view('/about');
+        return view('/dashboard');
     }
 
     /**
@@ -23,7 +23,7 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('/contact');
     }
 
     /**
@@ -32,28 +32,34 @@ class CotizacionController extends Controller
     public function store(Request $request)
     {
 
-        // Lógica para guardar los datos del formulario
-            // dd($request->all());
-        $cotizacion = new cotizacion();
-        $cotizacion->es_guadalajara = $request->es_guadalajara;
-        $cotizacion->es_aire_libre = $request->es_aire_libre;
-        $cotizacion->es_evento_grande = $request->es_evento_grande;
-        $cotizacion->es_todo_el_dia = $request->es_todo_el_dia;
-        $cotizacion->manana_o_noche = $request->manana_o_noche;
-        $cotizacion->temporada = $request->temporada;
-        // $cotizacion->estatus = 1;
+        $request->validate([
+            
+            'ancho' => 'required|numeric',
+            'largo' => 'required|numeric',
+            'tipo' => 'required|string',
+            'cantidad_personas' => 'required|numeric',
+            'lugar' => 'required|string',
+            'luces' => 'boolean',
+            'conexiones' => 'boolean',
+            'mesas' => 'integer',
+            'sillas' => 'integer',
+            'tarimas' => 'integer',
+            'color' => 'nullable|string|max:255',
+            'cortinas' => 'boolean',
+            'decoracion_extra' => 'nullable|string',
+            'status' => 'nullable|in:disponible,no_disponible'
+        ]);
 
-        $cotizacion->save();
+        cotizacion::create($request->all());
 
-        // Redirige al usuario a la página de inicio con un mensaje de éxito
-        return Redirect::route('home')->with('success', 'Tu cotización se ha enviado con éxito y está siendo procesada.');
+        return redirect()->route('cotizacion.index')->with('success', 'Toldo creado exitosamente.');
     }
     /**
      * Display the specified resource.
      */
     public function show(cotizacion $cotizacion)
     {
-        //
+        
     }
 
     /**

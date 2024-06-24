@@ -9,12 +9,17 @@
     </div>
     <h2>Listado de Productos</h2>
     <ul>
+        @if ($productos)
         @foreach($productos as $producto)
         <li>
             <a href="{{ route('productos.show', $producto->id) }}">{{ $producto->titulo }}</a>
             <p>{{ $producto->descripcion }}</p>
         </li>
-        @endforeach
+        @endforeach           
+        @else
+            
+        @endif
+
     </ul>
 </div>
 @endsection

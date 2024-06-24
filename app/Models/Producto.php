@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
-    public function imagenes()
+    public function galeria_toldos()
     {
-        return $this->hasMany(Imagen::class);
+        return $this->hasMany(galeria_toldos::class);
     }
 }

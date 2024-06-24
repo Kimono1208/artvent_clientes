@@ -39,8 +39,8 @@ Route::get('/', function () {
 
 Route::view('welcome','cliente/welcome');
 Route::view('about','cliente/acer');
-Route::view('contac','cliente/cont');
-Route::view('gallery','cliente/gal');
+Route::view('contact','cliente/cont');
+Route::view('gallery','cliente/gald');
 Route::view('team','cliente/equi');
 Route::view('pricing','cliente/prec');
 Route::view('features','cliente/cara');

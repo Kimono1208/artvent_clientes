@@ -132,7 +132,7 @@ style="background-color: darkgreen">
             </li>
         </ul>
         </li>
-        <li><a class="nav-link scrollto" href="/contac">Contacto</a></li>
+        <li><a class="nav-link scrollto" href="contact">Cotizacion</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
