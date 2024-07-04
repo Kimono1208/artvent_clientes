@@ -7,6 +7,8 @@
  <html lang="">
 
  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>@yield('titulo')</title>
@@ -29,7 +31,7 @@
      {{-- <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet"> --}}
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-2oFEnR/9A6+B5/xO5/8KV0RJoVLp2Q9IOMjP/i6mJpk02Pm/1O/j2k5+reXPUWfp" crossorigin="anonymous">
      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
  <body>
@@ -115,8 +117,7 @@
 
      <section id="gallery" class="gallery">
          <div class="container">
-             <h2>{{ $producto->titulo }}</h2>
-             <p>{{ $producto->descripcion }}</p>
+            
 
              <h2 class="title_todo">Filtro por categorías</h2>
              <div id="gallery_button" class="p-5">
@@ -131,59 +132,46 @@
                  <h2>Galeria</h2>
                  <p>Checa nuestros estilos</p>
              </div>
-             
-             <div class="title_toldo" data-aos="fade-left">
-                 <div class="modal" tabindex="-1" role="dialog">
-                     <div class="modal-dialog" role="document">
-                         <div class="modal-content">
-                             <div class="modal-header">
-                                 <h5 class="modal-title">Toldo Supremo</h5>
-                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                     <span aria-hidden="true">&times;</span>
-                                 </button>
-                             </div>
+             <p>
+                <h2>{{ $producto->titulo }}</h2>
+                @foreach ($producto->galeria_toldos as $index => $imagen)
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ asset($imagen->ruta) }}" alt="" class="card-img-top img-fluid">
+                            
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $index }}">
+                            Launch demo modal
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $index }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel{{ $index }}">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset($imagen->ruta) }}" class="img-fluid" alt="Modal Image">
+                                        <!-- You can customize the modal body as needed -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                             <div class="modal-body">
-                                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                     <div class="carousel-inner">
-                                         <div class="carousel-item active">
-                                             <img class="d-block w-100" src="{{ asset('img/gallery/toldos_evento_2.jpg')}}"
-                                                 alt="First slide">
-                                             <p></p>
-                                         </div>
-                                         <div class="carousel-item">
-                                             <img class="d-block w-100" src="{{ asset('img/gallery/toldos_evento_2.jpg')}}"
-                                                 alt="Second slide">
-                                         </div>
-                                         <div class="carousel-item">
-                                             <img class="d-block w-100" src="{{ asset('img/gallery/toldos_evento_2.jpg')}}"
-                                                 alt="Third slide">
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                                <p>
-                                    @foreach ($producto->galeria_toldos as $imagen)
-                                        <div class="col-lg-3 col-md-4">
-                                            <div class="{{ $imagen->categoria }}" data-aos="zoom-in"
-                                                data-aos-delay="100">
-                                                <img src="{{ $imagen->ruta }}" alt="" class="img-fluid">
-                                                {{-- <a href="{{ $imagen->ubicacion }}" class="gallery-lightbox">
-                                        <img src="{{ $imagen->ubicacion }}" alt="" class="img-fluid">
-                                    </a>  --}}
-                                                <p>{{ $producto->descripcion }}</p>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </p>
-                             <div class="modal-footer">
-                                 {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ $producto->descripcion }}</p>
+                        </div>
+                    </div>
+                </div>
+                 @endforeach
+
+            </p>
          </div>
          <footer id="footer">
              <div class="footer-top">
@@ -271,5 +259,5 @@
 
 
 
-
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js" integrity="sha384-jCkK5xYjZRk6o6gOp5qKs7cznEYxopnp/ll0+mZ6PL2AuM2WNpTBNbj4daLIy+qb" crossorigin="anonymous"></script>
  </body>

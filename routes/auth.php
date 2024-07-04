@@ -49,5 +49,6 @@ Route::view('features','cliente/cara');
 use App\Http\Controllers\ProductosController;
 Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
 Route::get('/productos/{id}', [ProductosController::class, 'show'])->name('productos.show');
+Route::resource('productos', ProductosController::class);
 Route::resource('cotizacion', CotizacionController::class);
 Route::resource('juancho', JuanchoController::class);
