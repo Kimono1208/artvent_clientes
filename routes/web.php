@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\GaleriaToldosController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
+// Route::view('/galeria', 'cliente/gal');
+
+Route::resource('galeria', GaleriaToldosController::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

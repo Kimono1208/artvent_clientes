@@ -33,7 +33,7 @@ class CotizacionController extends Controller
     {
 
         $request->validate([
-            
+
             'ancho' => 'required|numeric',
             'largo' => 'required|numeric',
             'tipo' => 'required|string',
@@ -59,7 +59,7 @@ class CotizacionController extends Controller
      */
     public function show(cotizacion $cotizacion)
     {
-        
+
     }
 
     /**
