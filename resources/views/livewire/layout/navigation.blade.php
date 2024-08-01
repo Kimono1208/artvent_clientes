@@ -85,6 +85,10 @@ style="background-color: darkgreen">
                                             </button>
                                         </x-slot>
                                     </x-dropdown>
+                                    <x-dropdown-link :href="route('cotizacion.index')" wire:navigate>
+                                        {{ __('Mis Cotizaciones') }}
+                                    </x-dropdown-link>
+                                    
                                 </div>
                     
                                 <!-- Hamburger -->

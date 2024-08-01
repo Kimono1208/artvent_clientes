@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\cotizacion;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorecotizacionRequest;
 use App\Http\Requests\UpdatecotizacionRequest;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class CotizacionController extends Controller
 {
@@ -15,16 +17,24 @@ class CotizacionController extends Controller
      */
     public function index()
     {
-        return view('/dashboard');
+        // Obtener el ID del cliente actual
+        $userId = Auth::id();
+        
+
+        // Obtener todas las cotizaciones del cliente actual
+        $cotizaciones = Cotizacion::where('user_id', $userId)->get();
+
+        // Retornar la vista con las cotizaciones
+        return view('cliente.tables_cotizaciones', compact('cotizaciones'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('/contact');
-    }
+    // public function create()
+    // {
+    //     return view('/contact');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -50,39 +60,18 @@ class CotizacionController extends Controller
             'status' => 'nullable|in:disponible,no_disponible'
         ]);
 
-        cotizacion::create($request->all());
+        $cotizacion = new Cotizacion($request->all());
+        $cotizacion->user_id = Auth::id();  
+        $cotizacion->user_id = Auth::id();
+        $cotizacion->save();
 
-        return redirect()->route('cotizacion.index')->with('success', 'Toldo creado exitosamente.');
+        return redirect()->route('cotizacion.index')->with('success', 'Cotizacion creado exitosamente.');
     }
     /**
      * Display the specified resource.
      */
     public function show(cotizacion $cotizacion)
     {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(cotizacion $cotizacion)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatecotizacionRequest $request, cotizacion $cotizacion)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(cotizacion $cotizacion)
-    {
-        //
+        return redirect()->route('cotizacion.index')->with('success', 'Cotizacion creado exitosamente.');
     }
 }
