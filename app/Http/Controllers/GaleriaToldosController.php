@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\galeria_toldos;
-use App\Http\Requests\Storegaleria_toldosRequest;
-use App\Http\Requests\Updategaleria_toldosRequest;
+use App\Models\GaleriaToldos;
+use Illuminate\Http\Request;
 
 class GaleriaToldosController extends Controller
 {
@@ -13,7 +12,8 @@ class GaleriaToldosController extends Controller
      */
     public function index()
     {
-        //
+        $galeriaToldos = GaleriaToldos::all();
+        return view("cliente/gal", compact("galeriaToldos"));
     }
 
     /**
@@ -27,7 +27,7 @@ class GaleriaToldosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Storegaleria_toldosRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class GaleriaToldosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(galeria_toldos $galeria_toldos)
+    public function show(GaleriaToldos $galeriaToldos)
     {
         //
     }
@@ -43,7 +43,7 @@ class GaleriaToldosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(galeria_toldos $galeria_toldos)
+    public function edit(GaleriaToldos $galeriaToldos)
     {
         //
     }
@@ -51,7 +51,7 @@ class GaleriaToldosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Updategaleria_toldosRequest $request, galeria_toldos $galeria_toldos)
+    public function update(Request $request, GaleriaToldos $galeriaToldos)
     {
         //
     }
@@ -59,7 +59,7 @@ class GaleriaToldosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(galeria_toldos $galeria_toldos)
+    public function destroy(GaleriaToldos $galeriaToldos)
     {
         //
     }

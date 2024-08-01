@@ -57,7 +57,15 @@
                 </div>
 
                 <div class="row g-0" data-aos="fade-left">
-
+                    @foreach ($galeriaToldos as $toldo)
+                  <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item evento" data-aos="zoom-in" data-aos-delay="100">
+                      <a href="{{ asset("storage/".$toldo->imagen) }}" class="gallery-lightbox">
+                        <img src="{{ asset("storage/".$toldo->imagen) }}" alt="" class="img-fluid">
+                      </a>
+                    </div>
+                  </div>
+                  @endforeach
                   <div class="col-lg-3 col-md-4">
                     <div class="gallery-item evento" data-aos="zoom-in" data-aos-delay="100">
                       <a href="img/gallery/toldos_evento.jpg" class="gallery-lightbox">

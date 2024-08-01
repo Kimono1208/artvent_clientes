@@ -3,16 +3,16 @@
     @extends('plantilla.plantilla')
 
     @section('titulo', 'contacto')
-    
+
     @section('contenido')
         <section id="contact" class="contact">
             <div class="container">
-    
+
                 <div class="section-title" data-aos="fade-up">
                     <h2>Contacto</h2>
                     <p>Cotización</p>
                 </div>
-    
+
                 <div class="row">
                     <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
                         <div class="info">
@@ -21,13 +21,13 @@
                                 <h4>Ubicación:</h4>
                                 <p>Calle Principal, Colonia Centro, Guadalajara, Jalisco, México</p>
                             </div>
-    
+
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
                                 <p>artvent@gmail.com</p>
                             </div>
-    
+
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Llamada:</h4>
@@ -35,12 +35,15 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
                         <div class="section-title">
                             <h3>Solicitar Cotización</h3>
                         </div>
-    
+                        <a href="/google-auth/redirect" class="text-center">SSO GOOGLE</a>
+
+
+
                         @if (Auth::check())
                             <!-- Tu formulario de cotización aquí -->
                             <form action="{{ route('cotizacion.store') }}" method="POST" role="form" class="php-email-form">
@@ -103,8 +106,8 @@
                                         <option value="Primavera">Primavera</option>
                                     </select>
                                 </div>
-    
-    
+
+
                                 <!-- Mensajes de éxito y error -->
                                 <div class="my-3">
                                     <div class="loading">Cargando</div>
@@ -114,7 +117,7 @@
                                 <div>
                                     {{ isset($success) ? $success : '' }}
                                 </div>
-    
+
                                 <!-- Botón de envío -->
                                 <div class="text-center"><button type="submit">Enviar Cotización</button></div>
                             </form>
@@ -129,9 +132,9 @@
                         @endif
                     </div>
                 </div>
-    
+
             </div>
         </section>
     @endsection
-    
+
 </html>
